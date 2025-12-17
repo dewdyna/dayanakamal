@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+<link rel="stylesheet" type="text/css" href="styleindex.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #F8F4EC, #FFE8D6); 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #CAB99E; 
+            padding: 25px;
+            text-align: center;
+            color: #3F2F24;
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 15px #A57C57;
+        }
+
+        /* WELCOME SECTION */
+        .container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #5A4E43;
+            margin-bottom: 15px;
+            margin-top: 20px; 
+            font-family: 'Playfair Display', serif;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #7A6E63;
+            margin-bottom: 40px;
+        }
+
+      
+        .profile-img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #FFFFFF;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            transition: 0.4s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* BUTTON */
+        .start-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #B69A77;
+            color: white;
+            font-size: 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .start-btn:hover {
+            background: #9c8368;
+            transform: translateY(-4px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #CAB99E;
+            padding: 12px;
+            margin-top: 5px;
+            text-align: center;
+            color: #3F2F24;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px #A57C57;
+        }
+
+        
+        #clock {
+            position: fixed; /* sentiasa atas */
+            top: 30px;
+            left: 20px;
+            background: rgba(63, 47, 36, 0.85); 
+            color: #FFD580; /* soft gold */
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-family: 'Poppins', sans-serif;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<marquee>Hi! Let’s explore together 🌸</marquee>
+
+<header>
+    MY PROFILE
+</header>
+
+<div class="container">
+    <h2>Welcome to My Website</h2>
+    <p class="subtitle">Discover more about me</p>
+    <img src="gambarindex.jpeg" class="profile-img" alt="Profile Picture">
+    <br>
+    <a href="me.html" class="start-btn">Let's Start</a>
+</div>
+
+<footer>
+    © 2025 My Personal Website
+</footer>
+
+<script>
+function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // jam 0 jadi 12
+    const timeString = hours.toString().padStart(2,'0') + ':' +
+                       minutes.toString().padStart(2,'0') + ':' +
+                       seconds.toString().padStart(2,'0') + ' ' + ampm;
+    document.getElementById("clock").innerHTML = "🕒 " + timeString;
+}
+
+// Update setiap 1 saat
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
