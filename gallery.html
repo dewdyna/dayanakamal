@@ -1,0 +1,307 @@
+<html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Gambar Matang (Navigasi Asal)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+   <style>
+    :root {
+        --color-primary: #5D4037; 
+        --color-velvet: #3E2723;
+        --color-accent: #C7A96B;
+        --color-bg-light: #FBF7F1;  
+        --color-text: #F4E9D6;
+        --color-text-dark: #4A4A4A; 
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: var(--color-velvet);
+        background-attachment: fixed;
+        color: var(--color-text); 
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        opacity: 0.15; 
+        z-index: -1;
+    }
+
+    .content-wrapper {
+        padding-top: 90px;
+    }
+
+    nav {
+        width: 100%;
+        background:#C9ADA6;
+        padding: 15px 0;
+        position: fixed;
+        top: 0; 
+        left: 0;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        gap: 70px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.4); 
+        backdrop-filter: blur(5px);
+        z-index: 100;
+    }
+
+    nav a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--color-velvet); 
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+    nav a:hover {
+        color: var(--color-velvet);
+    }
+
+    .active-page::after {
+        width: 100% !important;
+    }
+    .home-btn {
+        background: var(--color-accent); 
+        color: var(--color-velvet) !important; 
+        padding: 10px 20px;
+        border-radius: 30px;
+    }
+    .home-btn:hover {
+        background: #a8874c;
+        transform: scale(1.08);
+    }
+    
+   
+    .gallery-wrapper {
+        margin-top: 130px; 
+        width: 90%; 
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px;
+        border-radius: 15px;
+        background: #DADBD9; 
+        box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+        min-height: 80vh;
+        margin-bottom: 70px;
+        border: 5px solid var(--color-accent);
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 44px;
+        color: var(--color-primary); 
+        border-bottom: 3px double var(--color-accent); 
+        padding-bottom: 15px;
+        margin-top: 60px; 
+        margin-bottom: 50px;
+        font-weight: 700; 
+        letter-spacing: 2px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--color-text-dark); 
+    }
+    .section-title:first-of-type {
+        margin-top: 0; 
+    }
+    
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 25px; 
+        margin: 0 auto; 
+        padding: -10px 0;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden; 
+        border-radius: 5px; 
+        background-color: var(--color-velvet); 
+        padding: 10px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 5px 15px rgba(0,0,0,0.2);
+        border: 1px solid var(--color-accent); 
+        transition: transform 0.3s, box-shadow 0.3s; 
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 20px rgba(199, 169, 107, 0.7); 
+        border-color: white; 
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height:300px; 
+        object-fit: cover; 
+        display: block;
+        filter: saturate(110%); 
+        border: 2px solid var(--color-bg-light); 
+        transition: transform 0.4s ease-in-out, filter 0.4s, border-color 0.4s;
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1); 
+        filter: saturate(130%); 
+        border-color: var(--color-accent); 
+    }
+
+
+    /* Media Queries (Responsif) */
+    @media (max-width: 1200px) {
+        .gallery-container {
+            grid-template-columns: repeat(3, 1fr); 
+        }
+        .gallery-wrapper {
+            width: 95%;
+            padding: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-container {
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px;
+        }
+        .gallery-item img {
+            height: 200px; 
+        }
+        .section-title {
+            font-size: 36px;
+        }
+        nav {
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .gallery-container {
+            grid-template-columns: 1fr; 
+        }
+        nav {
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        nav a {
+            font-size: 16px;
+        }
+    }
+
+#gallery {
+padding-top: 70px; 
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--color-velvet);
+    color: var(--color-text-light);
+    border-top: 2px solid var(--color-accent);
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i></a>
+    <a href="me.html">About Me</a>
+    <a href="family.html">Family</a>
+    <a href="education.html">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html" class="active-page">Gallery</a>
+</nav>
+
+<div class="gallery-wrapper">
+    
+    <h2 id="gallery" class="section-title">My Photos</h2>
+    <div class="gallery-container">
+	<div class="gallery-item"><img src="fam6.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="fam8.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="fam3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="fam7.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="babyme.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="fam1.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="fam9.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="me1.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="me2.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="babyme3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="me3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="me4.jpeg" alt="Gambar Keluarga 1"></div>	
+	<div class="gallery-item"><img src="kawan1.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan2.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan4.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan5.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan6.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan7.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan8.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan10.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan9.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="kawan11.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food1.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food2.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food4.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food5.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food6.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food7.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food8.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food9.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="food10.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat1.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat2.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat3.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat4.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat5.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat6.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat8.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat9.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat10.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat11.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat12.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat14.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat15.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat16.jpeg" alt="Gambar Keluarga 1"></div>
+	<div class="gallery-item"><img src="cat17.jpeg" alt="Gambar Keluarga 1"></div>
+            </div>
+
+    </div>
+<!-- FOOTER -->
+<footer>
+    <p>© 2025| My Personal Website</p>
+</footer>
+
+
+</body>
+</html>
