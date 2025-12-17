@@ -1,0 +1,360 @@
+<html>
+<head>
+<title>About Me</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="clock.css">
+<script src="clock.js"></script>
+
+<style>
+:root {
+    --color-primary: #5D4037;
+    --color-velvet: #3E2723;
+    --color-accent: #C7A96B;
+    --color-bg-light: #FBF7F1;
+    --color-text-light: #F4E9D6;
+    --color-text-dark: #333333;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-velvet);
+    color: var(--color-text-light);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    background: #C9ADA6; 
+    padding: 16px 0;
+    position: fixed;
+    top: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3); 
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* (HOVER DAN ACTIVE) */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 0;
+    height: 3px; 
+    background-color: var(--color-velvet); 
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; 
+}
+nav a:hover {
+    color: var(--color-velvet); 
+}
+
+.active-page::after {
+    width: 100% !important; 
+}
+.home-btn {
+    background: var(--color-accent);
+    color: var(--color-velvet) !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+}
+
+/* CONTAINER */
+.container {
+    margin: 160px auto;
+    width: 85%;
+    background: var(--color-bg-light);
+    padding: 45px;
+    border-radius: 25px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+}
+
+/* INTRO SECTION */
+.intro-section {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    width: 280px;
+    height: 280px;
+    border-radius: 22px;
+    object-fit: cover;
+    border: 6px solid var(--color-primary);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+}
+
+/* INFO CARDS */
+.info-cards-3row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background: #F8F4EC;
+    padding: 22px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    color: var(--color-text-dark);
+    font-size: 16px;
+}
+
+.info-card i {
+    font-size: 28px;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+}
+
+/* HOBBIES */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.hobby-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.hobby-card {
+    background: #F8F4EC;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    color: var(--color-text-dark);
+}
+
+.hobby-card i {
+    font-size: 32px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.hobby-card ul {
+    padding-left: 18px;
+}
+
+.hobby-card li {
+    margin-bottom: 15px;
+}
+
+audio, video {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 12px;
+}
+
+/* CONTACT */
+.contact-info {
+    background: #F8F4EC;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+}
+
+.contact-info i {
+    color: var(--color-accent);
+    margin-right: 8px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--color-velvet);
+    color: var(--color-text-light);
+    border-top: 2px solid var(--color-accent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .intro-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-cards-3row {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i></a>
+    <a href="me.html"class="active-page">About Me</a>
+    <a href="family.html">Family</a>
+    <a href="education.html">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+</nav>
+
+<div class="container">
+
+    <!-- ABOUT ME -->
+    <div class="intro-section">
+        <div class="profile">
+            <img src="gambaraboutme.jpeg" alt="My Photo">
+        </div>
+
+        <div class="about-text">
+            <h2>ABOUT ME</h2>
+            <p>
+Hi there! Before you get to know me better, here’s a little glimpse into who I am. I enjoy immersing myself in music and dramas, exploring new hobbies, and always trying to make everyday life a bit more fun. I’m naturally curious, love meeting new people, and enjoy sharing little moments that bring joy. If you’re curious to see some of my favorite memories and highlights, <a href="gallery.html#gallery">Let's Explore</a> and take a peek!
+</p>
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-cards-3row">
+        <div class="info-card"><i class="fa-solid fa-user"></i><br><strong>Name</strong><br>Siti Dayanarosalinda Binti Shamsul Kamal</div>
+        <div class="info-card"><i class="fa-solid fa-calendar"></i><br><strong>Age</strong><br>08 March 2005 (20 Years Old)</div>
+        <div class="info-card"><i class="fa-solid fa-city"></i><br><strong>Hometown</strong><br>Pasir Gudang, Johor</div>
+        <div class="info-card"><i class="fa-solid fa-house"></i><br><strong>Residence</strong><br>Taman Bukit Dahlia</div>
+        <div class="info-card"><i class="fa-solid fa-graduation-cap"></i><br><strong>Status</strong><br>Diploma in Information Management</div>
+        <div class="info-card"><i class="fa-solid fa-language"></i><br><strong>Languages</strong><br>Malay, English, Mandarin</div>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="section-title">Favourite Songs, Drama & Movies</div>
+
+    <div class="hobby-cards">
+        <!-- MUSIC -->
+        <div class="hobby-card">
+            <i class="fa-solid fa-headphones"></i>
+            <h3>Listening to Music</h3>
+            <ul>
+                <li>Blue Valentine - NMIXX
+                    <audio controls src="blue.mp3"></audio>
+                </li>
+                <li>First Love Song - Kickflip
+                    <audio controls src="kickflip.mp4"></audio>
+                </li>
+                <li>Like A Sunny Day, Like A Rainy Day - Silence Wang
+                    <audio controls src="cina.mp3"></audio>
+                </li>
+            </ul>
+        </div>
+
+        <!-- DRAMA & MOVIES -->
+        <div class="hobby-card">
+            <i class="fa-solid fa-film"></i>
+            <h3>Drama / Movies</h3>
+
+            <p><strong>Currently Watching:</strong> Dynamite Kiss</p>
+
+            <p><strong>Favourite K-Dramas</strong></p>
+            <ul>
+                <li>Start-Up
+                    <video controls src="drama.mp4"></video>
+                </li>
+                <li>My Perfect Stranger
+                    <video controls src="drama2.mp4"></video>
+                </li>
+            </ul>
+
+            <p><strong>Favourite Movies</strong></p>
+            <ul>
+                <li>Till We Meet Again
+                    <video controls src="movies.mp4"></video>
+                </li>
+                <li>Our Times
+                    <video controls src="movies2.mp4"></video>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="section-title">Contact Me</div>
+    <div class="contact-info">
+         <p><i class="fa-solid fa-envelope"></i> dayanashamsulkamal83@email.com</p>
+        <p>
+            <i class="fa-brands fa-instagram"></i> 
+            <a href="https://www.instagram.com/dyynnakamal/" target="_blank">@dyynnakamal</a>
+        </p>
+        <p>
+            <i class="fa-brands fa-twitter"></i> 
+            <a href="https://twitter.com/dayanakml" target="_blank">@dayanakml</a>
+        </p>
+        <p>
+            <i class="fa-solid fa-phone"></i> 
+            <a href="tel:+60177812935">+60 17-7812935</a>
+        </p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025| My Personal Website</p>
+</footer>
+
+</body>
+</html>
