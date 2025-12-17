@@ -1,0 +1,231 @@
+<style>
+:root {
+    --color-primary: #5D4037;
+    --color-velvet: #3E2723;
+    --color-accent: #C7A96B;
+    --color-bg-light: #FBF7F1;
+    --color-text-light: #F4E9D6;
+    --color-text-dark: #333333;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-velvet);
+    color: var(--color-text-light);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    background: #C9ADA6; 
+    padding: 16px 0;
+    position: fixed;
+    top: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3); 
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* (HOVER DAN ACTIVE) */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 0;
+    height: 3px; 
+    background-color: var(--color-velvet); 
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; 
+}
+nav a:hover {
+    color: var(--color-velvet); 
+}
+
+.active-page::after {
+    width: 100% !important; 
+}
+.home-btn {
+    background: var(--color-accent);
+    color: var(--color-velvet) !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+}
+
+/* CONTAINER */
+.container {
+    margin: 160px auto;
+    width: 85%;
+    background: var(--color-bg-light);
+    padding: 45px;
+    border-radius: 25px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+}
+
+/* INTRO SECTION */
+.intro-section {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    width: 280px;
+    height: 280px;
+    border-radius: 22px;
+    object-fit: cover;
+    border: 6px solid var(--color-primary);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+}
+
+/* INFO CARDS */
+.info-cards-3row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background: #F8F4EC;
+    padding: 22px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    color: var(--color-text-dark);
+    font-size: 16px;
+}
+
+.info-card i {
+    font-size: 28px;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+}
+
+/* HOBBIES */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.hobby-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.hobby-card {
+    background: #F8F4EC;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    color: var(--color-text-dark);
+}
+
+.hobby-card i {
+    font-size: 32px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.hobby-card ul {
+    padding-left: 18px;
+}
+
+.hobby-card li {
+    margin-bottom: 15px;
+}
+
+audio, video {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 12px;
+}
+
+/* CONTACT */
+.contact-info {
+    background: #F8F4EC;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+}
+
+.contact-info i {
+    color: var(--color-accent);
+    margin-right: 8px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--color-velvet);
+    color: var(--color-text-light);
+    border-top: 2px solid var(--color-accent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .intro-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-cards-3row {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
