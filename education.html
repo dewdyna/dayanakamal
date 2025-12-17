@@ -1,0 +1,436 @@
+<html>
+<html>
+<head>
+    <title>Education</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+    --color-primary: #5D4037; /* Coklat Gelap / Mocha */
+    --color-velvet: #3E2723; /* Baldu/Burgundy Gelap (Latar Belakang Baru) */
+    --color-accent: #C7A96B; /* Emas / Gangsa yang Kaya */
+    --color-bg-light: #FBF7F1; /* Creamy off-white/Putih Gading */
+    --color-text-light: #F4E9D6; /* Teks berwarna putih lembut / gading */
+    --color-text-dark: #4A4A4A; /* Teks gelap */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-velvet); 
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.15; 
+    z-index: -1;
+}
+
+nav {
+    width: 100%;
+    background: #C9ADA6; 
+    padding: 15px 0;
+    position: fixed;
+    top: 0; 
+    left: 0;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 70px;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+nav a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    position: relative; 
+}
+
+/*(HOVER DAN ACTIVE) */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 0;
+    height: 3px; 
+    background-color: var(--color-velvet); 
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; 
+}
+nav a:hover {
+    color: var(--color-velvet); 
+}
+
+.active-page::after {
+    width: 100% !important; 
+}
+.home-btn {
+    background: var(--color-accent);
+    color: var(--color-velvet) !important; 
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+.home-btn:hover {
+    background: #a8874c; 
+    transform: scale(1.08);
+}
+
+.education-container {
+    margin-top: 150px;
+    width: 85%; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: var(--color-bg-light);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5); 
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px;
+    min-height: 70vh;
+    margin-bottom: 50px;
+}
+
+.portal-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* WARNA ASAL: #C7A96B; */
+    /* WARNA BARU: Emas Aksen */
+    border-left: 5px solid var(--color-accent); 
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.portal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(199, 169, 107, 0.5);
+}
+
+.portal-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.portal-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-accent);
+    font-size: 24px;
+    margin-top: 0;
+    border-bottom: 1px solid #E0D4C5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.data-label {
+    font-weight: 500;
+    color: var(--color-primary);
+    display: inline-block;
+    width: 180px; 
+    margin-right: 10px;
+}
+
+.data-value {
+    color: var(--color-text-dark);
+    font-weight: 400;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-accent); 
+    margin-left: 10px;
+}
+
+/* Achievement/Timeline Styling */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievement-list li {
+    background: var(--color-bg-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--color-primary);
+    font-size: 17px;
+}
+
+.achievement-list li strong {
+    color: var(--color-primary);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+/* Link Style for Map */
+.school-link {
+    color: var(--color-text-dark); 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 17px; 
+    display: inline-block;
+}
+
+.school-link:hover {
+    color: var(--color-accent); 
+    text-decoration: underline;
+}
+
+.location-detail {
+    font-size: 14px;
+    color: #888888;
+    display: block;
+    margin-top: 5px;
+}
+
+
+/* Subject Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: left;
+}
+table th, table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #E0D4C5;
+}
+table th {
+    background-color: #EDE3D4; 
+    color: var(--color-primary);
+    font-weight: 600;
+}
+table tr:hover {
+      background-color: var(--color-bg-light);
+}
+.grade-A { color: green; font-weight: 700; }
+.grade-B { color: var(--color-accent); font-weight: 700; } 
+
+/* Achievement Specific Styling (Added for clarity) */
+.achievement-list-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fff; 
+    border-left: 4px solid var(--color-accent); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.achievement-list-item strong {
+    color: var(--color-accent); 
+    font-size: 18px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.achievement-list-item span {
+    color: var(--color-primary);
+    font-size: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    
+    <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i></a>
+    <a href="me.html">About Me</a>
+    <a href="family.html">Family</a>
+    <a href="education.html"class="active-page">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+
+</nav>
+<div class="education-container">
+
+    <div class="sidebar-content">
+
+        <div class="portal-card">
+            <h3>⏳ Education Timeline</h3>
+            <ul class="achievement-list">
+                <li>
+                    <strong>Kindergarten (2009 - 2011)</strong>
+                    <a href="https://www.google.com/maps/place/TADIKA+MATAHARI,+TAMAN+KOTA+MASAI/@1.4916646,103.9391651,17z/data=!3m1!4b1!4m6!3m5!1s0x31da406b15df5575:0x8f97c259a66607bf!8m2!3d1.4916646!4d103.9391651!16s%2Fg%2F11csbp_wls?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="school-link">
+                        Tadika Matahari
+                    </a>
+                    <span class="location-detail">Taman Kota Masai, Johor</span>
+                </li>
+                
+                <li>
+                    <strong>Primary School (2012 - 2017)</strong>
+                    <a href="https://www.google.com.my/maps/place/SJK(C)+Masai+%E9%A9%AC%E5%A1%9E%E5%8D%8E%E5%B0%8F/@1.490688,103.8853048,17z/data=!3m1!4b1!4m6!3m5!1s0x31da6ac448b5de6d:0xf592c4f0b60fcfe8!8m2!3d1.490688!4d103.8853048!16s%2Fg%2F12389m8c?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="school-link">
+                        SJK(C)Masai
+                    </a>
+                    <span class="location-detail">Masai, Johor</span>
+                </li>
+
+                <li>
+                    <strong>Primary School (2012 - 2017)</strong>
+                    <a href="https://www.google.com/maps/place/Sekolah+Agama+Taman+Cendana/@1.4872352,103.9071388,17z/data=!3m1!4b1!4m6!3m5!1s0x31da6aa5952325b7:0x7a1091dd2b85a65b!8m2!3d1.4872352!4d103.9071388!16s%2Fg%2F11b620cll8?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="school-link">
+                        Sekolah Agama Taman Cendana
+                    </a>
+                    <span class="location-detail">Taman Cendana, Johor</span>
+                </li>
+
+
+                <li>
+                    <strong>Secondary School (2018 - 2022)</strong>
+                    <a href="google.com/maps/place/Smk+Pasir+Gudang/data=!4m2!3m1!1s0x0:0xd17f9b1650f40dc1?sa=X&ved=1t:2428&ictx=111" target="_blank" class="school-link">
+                        SMK Pasir Gudang
+                    </a>
+                    <span class="location-detail">Pasir Gudang, Johor</span>
+                </li>
+
+                <li>
+                    <strong>Diploma (2023 - Present)</strong>
+                    <a href="https://www.google.com/maps/place/UiTM+Cawangan+Johor,+Kampus+Segamat/@2.4879644,102.7267277,17z/data=!3m1!4b1!4m6!3m5!1s0x31ce2c6ce929a871:0xc0dfa5fe6922a589!8m2!3d2.4879644!4d102.7293026!16s%2Fg%2F187cd8bw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="school-link">
+                        UiTM Johor Branch, Segamat Campus
+                    </a>
+                    <span class="location-detail">Diploma in Information Management (IM110)</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="portal-card">
+            <h3>Related Skills</h3>
+            <ul class="achievement-list">
+            <li>Microsoft Excel (Data Management)</li>
+            <li>Information Research (Research Skills)</li>
+            <li>Canva (Graphic Design & Presentation)</li>
+            <li>Microsoft PowerPoint (Presentation Design)</li>
+            <li>HTML & CSS (Web Design)</li>
+            <li>Filing & Documentation (Record Management)</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <div class="main-content">
+        <h2>Academic Dashboard</h2>
+
+        <div class="portal-card">
+            <h3>Program Information</h3>
+            <p>
+                <span class="data-label">Institution:</span> 
+                <span class="data-value">UiTM Johor Branch, Segamat Campus</span>
+            </p>
+            <p>
+                <span class="data-label">Study Program:</span> 
+                <span class="data-value">Diploma in Information Management (IS110)</span>
+            </p>
+            <p>
+                <span class="data-label">Current Status:</span> 
+                <span class="status-badge">Active - Semester 5</span>
+            </p>
+            
+        </div>
+        
+        <div class="portal-card">
+            <h3>Core Subjects (Current Semester)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IMD310</td>
+                        <td>Industrial Training</td>
+                
+                    </tr>
+                    <tr>
+                        <td>IMD313</td>
+                        <td>Foundation Of Archives Administration</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>IMD316</td>
+                        <td>Multimedia For Information Presentation</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>IMD317</td>
+                        <td>Outreach Program Of Information Agencies</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>IMD318</td>
+                        <td>Introduction To Web Content Management And Design</td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="portal-card">
+            <h3>🏆 Academic Achievements</h3>
+            <ul class="achievement-list">
+                
+                <li class="achievement-list-item">
+                    <strong>Religious Primary School Certificate (SDEA)</strong>
+                    <span>Successfully completed and passed the SDEA examination (2017)</span>
+                </li>
+
+                <li class="achievement-list-item">
+                    <strong>Special Religious Class Certificate (SDKA) - Grade Two</strong>
+                    <span>Achieved Grade Two (2) in the SDKA examination, signifying excellent performance (2018)</span>
+                </li>
+                
+                <li class="achievement-list-item">
+                    <strong>Certificate of Appreciation for Best Folio Competition</strong>
+                    <span>Awarded for participation and achievement in the best folio competition at the secondary school level (2022)</span>
+                </li>
+<li class="achievement-list-item">
+            <strong>Dean's List Award</strong>
+            <span>Awarded for Semester 4
+</span>
+        </li></span>
+                </li>
+
+            </ul>
+        </div>
+        </div>
+
+</div>
+
+</body>
+</html>
